@@ -15,12 +15,21 @@ public class SchedulerComponent {
 	@Autowired
 	RestTemplate restTemplate;
 
-	@Scheduled(fixedDelay = 3000)
+	@Scheduled(fixedDelay = 10000)
 	public void schedule() {
 //        System.out.println(config.getMessage());
 
-		String url = "http://test-server:8080/users";
-		ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
-		System.out.println("Calling via Discovery Client.... " + responseEntity.getBody());
+		RequestHeaders requestBody = new RequestHeaders();
+		requestBody.setParentmsisdn("923058652178");
+		requestBody.setMsisdn("923058652178");
+		requestBody.setLanguage(1);
+		requestBody.setChannel("android");
+		requestBody.setIsguest(false);
+		requestBody.setType("prepaid");
+
+		String url = "http://tutorial:8080/get/tutorial";
+		ResponseEntity<TutorialBaseResponse> responseEntity = restTemplate.postForEntity(url, requestBody,
+				TutorialBaseResponse.class);
+		System.out.println("Calling via Discovery Client.... " + responseEntity.getBody().toString());
 	}
 }
