@@ -27,7 +27,7 @@ public class SchedulerComponent {
 		requestBody.setIsguest(false);
 		requestBody.setType("prepaid");
 
-		String url = "http://tutorial:8080/get/tutorial";
+		String url = "http://tutorial:8080/tutorial/get/tutorial";
 		ResponseEntity<TutorialBaseResponse> responseEntity = restTemplate.postForEntity(url, requestBody,
 				TutorialBaseResponse.class);
 		System.out.println("Calling via Discovery Client.... " + responseEntity.getBody().toString());
