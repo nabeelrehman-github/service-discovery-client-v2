@@ -19,17 +19,22 @@ public class SchedulerComponent {
 	public void schedule() {
 //        System.out.println(config.getMessage());
 
-		RequestHeaders requestBody = new RequestHeaders();
-		requestBody.setParentmsisdn("923058652178");
-		requestBody.setMsisdn("923058652178");
-		requestBody.setLanguage(1);
-		requestBody.setChannel("android");
-		requestBody.setIsguest(false);
-		requestBody.setType("prepaid");
+//		RequestHeaders requestBody = new RequestHeaders();
+//		requestBody.setAppversion("");
+//		requestBody.setBuildid("");
+//		requestBody.setCsvsegmentid("");
+//		requestBody.setCustomerid("");
+//		requestBody.setParentmsisdn("923058652178");
+//		requestBody.setMsisdn("923058652178");
+//		requestBody.setLanguage(1);
+//		requestBody.setChannel("android");
+//		requestBody.setIsguest(false);
+//		requestBody.setType("prepaid");
 
-		String url = "http://tutorial:8080/tutorial/get/tutorial";
-		ResponseEntity<TutorialBaseResponse> responseEntity = restTemplate.postForEntity(url, requestBody,
-				TutorialBaseResponse.class);
+		String url = "http://magento-service:8080/magento_service/get/eligiblewidgets/1";
+
+		ResponseEntity<String> responseEntity = restTemplate.getForEntity(url, String.class);
+
 		System.out.println("Calling via Discovery Client.... " + responseEntity.getBody().toString());
 	}
 }
