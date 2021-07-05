@@ -17,6 +17,7 @@ public class SchedulerComponent {
 
 	@Scheduled(fixedDelay = 10000)
 	public void schedule() {
+
 //        System.out.println(config.getMessage());
 
 //		RequestHeaders requestBody = new RequestHeaders();
